@@ -41,7 +41,9 @@ script:
 
 matrix:
   include:
-    - env:
+    - name: C++ tests
+    - name: Python tests
+      env:
         - TWINE_REPOSITORY_URL="https://upload.pypi.org/legacy/"
       services:
         - docker

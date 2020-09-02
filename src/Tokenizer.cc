@@ -728,6 +728,7 @@ namespace onmt
             bool cur_letter = unicode::is_letter(v);
             bool cur_number = !cur_letter && unicode::is_number(v);
             int alphabet = unicode::get_script(v);
+            std::cout << i << ' ' << unicode::get_script_name(alphabet) << std::endl;
 
             if (alphabets != nullptr)
             {
@@ -992,6 +993,7 @@ namespace onmt
   bool Tokenizer::add_alphabet_to_segment(const std::string& alphabet)
   {
     const int script_code = unicode::get_script_code(alphabet.c_str());
+    std::cout << "to segment: " << alphabet << " " << script_code << std::endl;
     if (script_code < 0)
       return false;
     _segment_alphabet.insert(script_code);
