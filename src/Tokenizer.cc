@@ -728,7 +728,7 @@ namespace onmt
             bool cur_letter = unicode::is_letter(v);
             bool cur_number = !cur_letter && unicode::is_number(v);
             int alphabet = unicode::get_script(v);
-            std::cerr << i << ' ' << unicode::get_script_name(alphabet) << std::endl;
+            std::cerr << i << ' ' << alphabet << std::endl;
 
             if (alphabets != nullptr)
             {
