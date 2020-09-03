@@ -1,5 +1,6 @@
 #include "onmt/unicode/Unicode.h"
 
+#include <iostream>
 #include <algorithm>
 
 #include <unicode/uchar.h>
@@ -186,6 +187,10 @@ namespace onmt
     {
       UErrorCode error;
       return static_cast<int>(uscript_getScript(c, &error));
+      if (U_FAILURE(error))
+      {
+        std::cout << u_errorName(error) << std::endl;
+      }
     }
 
   }
