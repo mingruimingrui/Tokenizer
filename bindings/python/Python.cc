@@ -3,6 +3,7 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <pybind11/iostream.h>
 
 #include <unicode/unistr.h>
 
@@ -518,7 +519,8 @@ PYBIND11_MODULE(pyonmttok, m)
          py::arg("segment_alphabet")=py::list())
     .def("tokenize", &TokenizerWrapper::tokenize,
          py::arg("text"),
-         py::arg("as_token_objects")=false)
+         py::arg("as_token_objects")=false,
+         py::call_guard<py::scoped_ostream_redirect, py::scoped_estream_redirect>())
     .def("serialize_tokens", &TokenizerWrapper::serialize_tokens,
          py::arg("tokens"))
     .def("deserialize_tokens", &TokenizerWrapper::deserialize_tokens,
