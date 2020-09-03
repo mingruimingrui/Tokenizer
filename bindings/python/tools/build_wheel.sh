@@ -15,7 +15,7 @@ PATH=/opt/python/cp37-cp37m/bin:$PATH
 curl -L -O https://github.com/unicode-org/icu/releases/download/release-${ICU_VERSION/./-}/icu4c-${ICU_VERSION/./_}-src.tgz
 tar xf icu4c-*-src.tgz
 cd icu/source
-CFLAGS="-fPIC" CXXFLAGS="-fPIC" ./configure --disable-shared --enable-static
+./configure
 make -j2 install
 cd $ROOT_DIR
 
@@ -35,7 +35,7 @@ cd $ROOT_DIR
 # Build Tokenizer.
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DLIB_ONLY=ON -DCMAKE_CXX_FLAGS="-DU_STATIC_IMPLEMENTATION" ..
+cmake -DCMAKE_BUILD_TYPE=Release -DLIB_ONLY=ON ..
 make -j2 install
 cd $ROOT_DIR
 
