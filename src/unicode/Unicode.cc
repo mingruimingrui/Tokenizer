@@ -186,11 +186,12 @@ namespace onmt
     int get_script(code_point_t c)
     {
       UErrorCode error;
-      return static_cast<int>(uscript_getScript(c, &error));
+      int script = uscript_getScript(c, &error);
       if (U_FAILURE(error))
       {
         std::cout << u_errorName(error) << std::endl;
       }
+      return script;
     }
 
   }
