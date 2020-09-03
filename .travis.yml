@@ -55,7 +55,7 @@ matrix:
       install:
         - pip install --user wheelhouse/*27mu*.whl
       script:
-        - pytest bindings/python/test/test.py
+        - pytest -s bindings/python/test/test.py
       after_success:
         - |
               if [[ -n $TRAVIS_TAG ]]; then
